@@ -6,19 +6,24 @@
 <title>Aditya Singh — Salesforce Developer Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0a0a0a;--card:#111111;--card2:#151515;--border:rgba(255,255,255,.06);
-  --orange:#F63C0C;--orange2:#ff6b3d;--green:#10b981;
-  --white:#ffffff;--gray1:#e5e5e5;--gray2:#a3a3a3;--gray3:#737373;--gray4:#404040;
+  --bg:#0a0d12;--card:#10141b;--card2:#141922;--border:rgba(148,178,214,.1);
+  --orange:#1B96FF;--orange2:#6ec2ff;--green:#2fd6a7;
+  --amber:#FFB65C;--amber2:#ffd08a;
+  --white:#f4f7fb;--gray1:#dbe3ee;--gray2:#8fa1b8;--gray3:#5c7086;--gray4:#2b3646;
   --cyan:#5eead4;
-  --font:'Inter',system-ui,-apple-system,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --font:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --display:'Space Grotesk',var(--font);
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
   --max:1200px;--radius:12px;
 }
+h1,h2,.section-title,.nav-logo,.hero-stat-val,.impact-val,.record-name,.profile-name,
+.exp-company,.project-name,.award-label,.cert-name,.footer-logo,.flow-node-title,
+.record-header-title{font-family:var(--display);letter-spacing:-.02em}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 :focus-visible{outline:2px solid var(--orange2);outline-offset:3px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){
@@ -45,13 +50,13 @@ section{padding:6rem 0}
 /* ===== NAVBAR ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:70px;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
 nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
-.nav-logo{font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-.02em}
+.nav-logo{font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
 .nav-logo span{color:var(--orange)}
 .nav-links{display:flex;list-style:none;gap:2rem}
 .nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:0;text-transform:none;color:var(--gray3);transition:color .3s;font-weight:500}
 .nav-links a:hover,.nav-links a.active{color:var(--white)}
 .nav-cta{font-size:.75rem;font-weight:600;padding:8px 20px;border-radius:8px;background:var(--orange);color:var(--white);letter-spacing:.04em;transition:all .3s;border:none;cursor:pointer}
-.nav-cta:hover{background:var(--orange2);box-shadow:0 4px 20px rgba(246,60,12,.3)}
+.nav-cta:hover{background:var(--orange2);box-shadow:0 4px 20px rgba(27,150,255,.3)}
 
 /* Mobile menu */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -70,10 +75,10 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .hero-bg-glow.g1{top:-15%;right:-10%;background:var(--orange)}
 .hero-bg-glow.g2{bottom:-20%;left:-10%;background:#ff6b3d}
 .hero-content{max-width:var(--max);margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;padding:100px 0 60px;z-index:2;position:relative}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.07);padding:6px 16px;border-radius:20px;margin-bottom:2rem;letter-spacing:0;color:var(--green);text-transform:none;font-weight:500}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;border:1px solid rgba(47,214,167,.25);background:rgba(47,214,167,.07);padding:6px 16px;border-radius:20px;margin-bottom:2rem;letter-spacing:0;color:var(--green);text-transform:none;font-weight:500}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero h1{font-size:4.2rem;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin-bottom:1.5rem}
+.hero h1{font-size:4.2rem;font-weight:700;line-height:.92;letter-spacing:-.04em;color:var(--white);margin-bottom:1.5rem}
 .hero h1 .line2{display:block;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-terminal{background:#0d0d0d;border:1px solid var(--border);border-radius:10px;margin-bottom:1.8rem;overflow:hidden;max-width:480px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6)}
 .hero-terminal-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:#161616;border-bottom:1px solid var(--border)}
@@ -90,10 +95,10 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .hero-desc{font-size:1rem;max-width:520px;line-height:1.9;margin-bottom:2rem;color:var(--gray2)}
 .hero-desc strong{color:var(--white);font-weight:600}
 .hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.2rem}
-.hero-pill{font-family:var(--mono);font-size:.68rem;padding:5px 14px;border-radius:20px;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);letter-spacing:0;font-weight:500;text-transform:none}
+.hero-pill{font-family:var(--mono);font-size:.68rem;padding:5px 14px;border-radius:20px;background:rgba(27,150,255,.08);border:1px solid rgba(27,150,255,.15);color:var(--orange2);letter-spacing:0;font-weight:500;text-transform:none}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1rem}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:.87rem;font-weight:700;border-radius:8px;background:var(--orange);color:var(--white);transition:all .3s;border:none;cursor:pointer;letter-spacing:.02em}
-.btn-primary:hover{background:var(--orange2);box-shadow:0 4px 24px rgba(246,60,12,.35);transform:translateY(-2px)}
+.btn-primary:hover{background:var(--orange2);box-shadow:0 4px 24px rgba(27,150,255,.35);transform:translateY(-2px)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:.87rem;font-weight:600;border-radius:8px;background:transparent;border:1px solid var(--gray4);color:var(--gray2);transition:all .3s;cursor:pointer;letter-spacing:.02em}
 .btn-secondary:hover{border-color:var(--orange);color:var(--white)}
 .hero-avail{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-top:1.2rem;font-weight:500}
@@ -101,7 +106,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 
 /* Hero Stats */
 .hero-stats{display:flex;gap:3rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
-.hero-stat-val{font-size:2.5rem;font-weight:900;line-height:1;letter-spacing:-.04em;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat-val{font-size:2.5rem;font-weight:700;line-height:1;letter-spacing:-.04em;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-stat-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray3);margin-top:5px;font-weight:500}
 
 /* Hero Right - Profile Card */
@@ -114,7 +119,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
   border-radius:50%;
   margin:0 auto 1.5rem;
   overflow:hidden;
-  box-shadow:0 0 40px rgba(246,60,12,.2);
+  box-shadow:0 0 40px rgba(27,150,255,.2);
 }
 
 .profile-avatar img{
@@ -123,7 +128,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
   object-fit:cover;
   border-radius:50%;
 }
-.profile-name{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:.3rem}
+.profile-name{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
 .profile-role{font-size:.75rem;color:var(--gray3);letter-spacing:.06em;margin-bottom:1.5rem}
 .profile-info-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.78rem}
 .profile-info-row:last-child{border-bottom:none}
@@ -132,6 +137,48 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .profile-info-val.highlight{color:var(--orange)}
 .profile-status{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:1.2rem;font-size:.68rem;color:var(--green);letter-spacing:.06em}
 .profile-status .dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+/* ===== FLOW CANVAS (signature element) ===== */
+.flow-canvas{display:flex;align-items:stretch;gap:0;margin-bottom:2rem;flex-wrap:wrap;padding:1.4rem 1rem;border-radius:14px;background-image:radial-gradient(rgba(148,178,214,.16) 1px,transparent 1px);background-size:16px 16px;margin-left:-1rem;margin-right:-1rem}
+.flow-node{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;min-width:132px;position:relative;display:flex;flex-direction:column;gap:2px;box-shadow:0 8px 24px -16px rgba(0,0,0,.6)}
+.flow-node-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3)}
+.flow-node-title{font-size:.86rem;font-weight:700;color:var(--white)}
+.flow-node-sub{font-family:var(--mono);font-size:.62rem;color:var(--gray3)}
+.flow-node.is-active{border-color:rgba(255,182,92,.45);box-shadow:0 0 0 1px rgba(255,182,92,.15),0 8px 28px -14px rgba(255,182,92,.35)}
+.flow-node.is-active .flow-node-eyebrow{color:var(--amber)}
+.flow-node-pin{position:absolute;top:-9px;right:-8px;font-family:var(--mono);font-size:.55rem;font-weight:600;letter-spacing:.04em;background:var(--amber);color:#231404;padding:2px 8px;border-radius:20px}
+.flow-arrow{display:flex;align-items:center;justify-content:center;width:34px;flex-shrink:0;color:var(--gray4)}
+.flow-arrow svg{width:20px;height:20px}
+.flow-arrow.is-open svg{color:var(--amber)}
+.flow-arrow.is-open{animation:flowdash 1.4s linear infinite}
+@keyframes flowdash{0%,100%{opacity:.4}50%{opacity:1}}
+.flow-node.is-decision{border-style:dashed;border-color:var(--gray4);background:transparent;text-align:center;align-items:center;justify-content:center}
+.flow-node.is-decision .flow-node-title{font-size:.78rem;color:var(--gray1);font-weight:500;max-width:120px}
+.flow-node.is-cta{background:linear-gradient(135deg,var(--amber),#e88f2e);border:none;justify-content:center;align-items:center;cursor:pointer}
+.flow-node.is-cta .flow-node-title{color:#241505;font-weight:700;font-size:.82rem}
+@media(max-width:1024px){.flow-canvas{gap:.6rem 0}.flow-arrow{width:100%;transform:rotate(90deg)}}
+
+/* ===== RECORD DETAIL PANEL (signature element) ===== */
+.record-panel{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;width:100%}
+.record-header{display:flex;align-items:center;gap:14px;padding:1.4rem 1.6rem;background:linear-gradient(135deg,rgba(27,150,255,.1),rgba(27,150,255,.02));border-bottom:1px solid var(--border)}
+.record-header-icon{width:46px;height:46px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 0 0 1px var(--border)}
+.record-header-icon img{width:100%;height:100%;object-fit:cover}
+.record-header-title{font-size:1.15rem;font-weight:700;color:var(--white)}
+.record-header-sub{font-family:var(--mono);font-size:.68rem;color:var(--gray3);margin-top:2px}
+.record-highlights{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--border)}
+.record-highlight{padding:1rem .8rem;text-align:center;border-right:1px solid var(--border)}
+.record-highlight:last-child{border-right:none}
+.record-highlight-val{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--orange2)}
+.record-highlight-lbl{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3);margin-top:2px}
+.record-fields{padding:.4rem 1.6rem}
+.record-field{padding:.7rem 0;border-bottom:1px solid var(--border)}
+.record-field:last-child{border-bottom:none}
+.record-field-lbl{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3);margin-bottom:.25rem}
+.record-field-val{font-size:.85rem;color:var(--gray1);font-weight:500}
+.record-field-val a{color:var(--orange2)}
+.record-field-val a:hover{color:var(--amber)}
+.record-status{display:flex;align-items:center;justify-content:center;gap:8px;padding:1rem;font-family:var(--mono);font-size:.68rem;color:var(--green);letter-spacing:.04em;background:rgba(47,214,167,.05);border-top:1px solid var(--border)}
+.record-status .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 
 /* ===== MARQUEE ===== */
 .marquee-section{padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--card)}
@@ -143,7 +190,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 /* ===== SECTION HEADERS ===== */
 .section-eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;text-transform:none;color:var(--orange2);font-weight:500;margin-bottom:.8rem;display:inline-flex;align-items:center;gap:2px}
 .section-eyebrow::before{content:'$';color:var(--gray4);margin-right:2px}
-.section-title{font-size:2.8rem;font-weight:900;color:var(--white);letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.1}
+.section-title{font-size:2.8rem;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.1}
 .section-title span{background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-subtitle{font-size:1rem;color:var(--gray3);max-width:500px;line-height:1.7}
 .section-header{margin-bottom:3.5rem}
@@ -164,7 +211,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .info-val.hl{color:var(--orange)}
 .info-val a{color:var(--orange);transition:color .3s}
 .info-val a:hover{color:var(--orange2)}
-.info-status{display:flex;align-items:center;justify-content:center;gap:6px;padding:1rem;font-size:.7rem;color:var(--green);letter-spacing:.06em;background:rgba(16,185,129,.04);border-top:1px solid var(--border)}
+.info-status{display:flex;align-items:center;justify-content:center;gap:6px;padding:1rem;font-size:.7rem;color:var(--green);letter-spacing:.06em;background:rgba(47,214,167,.04);border-top:1px solid var(--border)}
 .info-status .dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 
 /* ===== AWARDS ===== */
@@ -172,7 +219,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .award-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:all .4s;position:relative;overflow:hidden}
 .award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .award-card:hover::before{transform:scaleX(1)}
-.award-card:hover{border-color:rgba(246,60,12,.2);transform:translateY(-4px)}
+.award-card:hover{border-color:rgba(27,150,255,.2);transform:translateY(-4px)}
 .award-icon{font-size:2rem;margin-bottom:1rem}
 .award-label{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
 .award-body{font-size:.82rem;color:var(--gray3);line-height:1.7}
@@ -181,25 +228,25 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .skills-section{background:var(--card2)}
 .impact-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3.5rem;padding:2rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
 .impact-item{text-align:center;padding:1rem}
-.impact-val{font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em}
+.impact-val{font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em}
 .impact-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gray3);margin-top:.3rem;font-weight:500}
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .skill-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:all .4s}
-.skill-card:hover{border-color:rgba(246,60,12,.2);transform:translateY(-4px)}
+.skill-card:hover{border-color:rgba(27,150,255,.2);transform:translateY(-4px)}
 .skill-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .skill-name{font-size:1rem;font-weight:700;color:var(--white)}
 .skill-pct{font-size:.85rem;font-weight:700;color:var(--orange)}
 .skill-bar-bg{width:100%;height:4px;background:var(--gray4);border-radius:4px;overflow:hidden;margin-bottom:1.2rem}
 .skill-bar-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--orange2));border-radius:4px;width:0;transition:width 1.5s ease}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{font-family:var(--mono);font-size:.62rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
+.skill-tag{font-family:var(--mono);font-size:.62rem;padding:3px 10px;border-radius:16px;background:rgba(27,150,255,.06);border:1px solid rgba(27,150,255,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
 
 /* ===== EXPERIENCE ===== */
 .exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .exp-header{display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:1rem}
-.exp-company{font-size:1.4rem;font-weight:800;color:var(--white)}
+.exp-company{font-size:1.4rem;font-weight:700;color:var(--white)}
 .exp-role{font-size:.85rem;color:var(--gray3);margin-top:.2rem}
-.exp-date{font-family:var(--mono);font-size:.72rem;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);padding:6px 14px;border-radius:20px;font-weight:500;letter-spacing:0}
+.exp-date{font-family:var(--mono);font-size:.72rem;background:rgba(27,150,255,.08);border:1px solid rgba(27,150,255,.15);color:var(--orange2);padding:6px 14px;border-radius:20px;font-weight:500;letter-spacing:0}
 .exp-body{padding:2rem 2.5rem}
 .exp-list{list-style:none}
 .exp-list li{padding:.7rem 0;padding-left:1.5rem;position:relative;font-size:.9rem;line-height:1.8;border-bottom:1px solid var(--border)}
@@ -211,13 +258,13 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .4s;position:relative}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .project-card:hover::before{transform:scaleX(1)}
-.project-card:hover{border-color:rgba(246,60,12,.2);transform:translateY(-4px)}
-.project-icon{width:100%;height:180px;background:linear-gradient(135deg,rgba(246,60,12,.05),rgba(246,60,12,.02));display:flex;align-items:center;justify-content:center;font-size:3.5rem;border-bottom:1px solid var(--border)}
+.project-card:hover{border-color:rgba(27,150,255,.2);transform:translateY(-4px)}
+.project-icon{width:100%;height:180px;background:linear-gradient(135deg,rgba(27,150,255,.05),rgba(27,150,255,.02));display:flex;align-items:center;justify-content:center;font-size:3.5rem;border-bottom:1px solid var(--border)}
 .project-body{padding:1.5rem 1.8rem}
-.project-name{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.project-name{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
 .project-desc{font-size:.82rem;color:var(--gray3);line-height:1.7;margin-bottom:1.2rem}
 .project-tags{display:flex;flex-wrap:wrap;gap:6px}
-.project-tag{font-family:var(--mono);font-size:.6rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
+.project-tag{font-family:var(--mono);font-size:.6rem;padding:3px 10px;border-radius:16px;background:rgba(27,150,255,.06);border:1px solid rgba(27,150,255,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
 
 /* ===== CERTIFICATIONS ===== */
 .certs-section{background:var(--card2)}
@@ -225,7 +272,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .cert-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;transition:all .4s;position:relative;overflow:hidden}
 .cert-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .cert-card:hover::after{transform:scaleX(1)}
-.cert-card:hover{border-color:rgba(246,60,12,.2);transform:translateY(-4px)}
+.cert-card:hover{border-color:rgba(27,150,255,.2);transform:translateY(-4px)}
 .cert-icon{font-size:2.5rem;margin-bottom:1rem}
 .cert-name{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
 .cert-issuer{font-family:var(--mono);font-size:.68rem;color:var(--gray3);letter-spacing:0;text-transform:none}
@@ -234,8 +281,8 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
 .contact-links{display:flex;flex-direction:column;gap:1rem}
 .contact-link{display:flex;align-items:center;gap:14px;padding:1.2rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s}
-.contact-link:hover{border-color:rgba(246,60,12,.2);transform:translateX(8px)}
-.contact-link-icon{width:44px;height:44px;border-radius:10px;background:rgba(246,60,12,.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-link:hover{border-color:rgba(27,150,255,.2);transform:translateX(8px)}
+.contact-link-icon{width:44px;height:44px;border-radius:10px;background:rgba(27,150,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .contact-link-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray3);font-weight:500}
 .contact-link-val{font-size:.9rem;color:var(--white);font-weight:500;margin-top:.2rem}
 .contact-form{display:flex;flex-direction:column;gap:1rem}
@@ -248,7 +295,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 
 /* ===== FOOTER ===== */
 footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
-.footer-logo{font-size:1.3rem;font-weight:900;color:var(--white);margin-bottom:.5rem}
+.footer-logo{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
 .footer-logo span{color:var(--orange)}
 .footer-text{font-size:.75rem;color:var(--gray3);letter-spacing:.04em}
 .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}
@@ -337,14 +384,33 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
         <span class="line2">Solutions That</span>
         <span class="line1">Drive Real Results</span>
       </h1>
-      <div class="hero-terminal reveal reveal-d2">
-        <div class="hero-terminal-bar">
-          <span class="hero-terminal-dot"></span><span class="hero-terminal-dot"></span><span class="hero-terminal-dot"></span>
-          <span class="hero-terminal-title">aditya@salesforce — zsh</span>
+      <div class="flow-canvas reveal reveal-d2">
+        <div class="flow-node">
+          <span class="flow-node-eyebrow">2021</span>
+          <span class="flow-node-title">Student Intern</span>
+          <span class="flow-node-sub">TCS iON</span>
         </div>
-        <div class="hero-terminal-body">
-          <div class="hero-typed"><span class="prompt">➜</span><span id="typed-text"></span><span class="cursor"></span></div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node">
+          <span class="flow-node-eyebrow">2022 – 2024</span>
+          <span class="flow-node-title">Dev. Associate</span>
+          <span class="flow-node-sub">Accenture</span>
         </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node is-active">
+          <span class="flow-node-pin">YOU ARE HERE</span>
+          <span class="flow-node-eyebrow">2024 – Present</span>
+          <span class="flow-node-title">Dev. Analyst</span>
+          <span class="flow-node-sub">Accenture</span>
+        </div>
+        <div class="flow-arrow is-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node is-decision">
+          <span class="flow-node-title">Next role?<br>Open to it →</span>
+        </div>
+        <div class="flow-arrow is-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+        <a href="#contact" class="flow-node is-cta">
+          <span class="flow-node-title">Let's talk →</span>
+        </a>
       </div>
       <p class="hero-desc reveal reveal-d2">
         I'm <strong>Aditya Singh</strong>, an <strong>Application Development Analyst</strong> at
@@ -364,40 +430,46 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
         <a href="#contact" class="btn-primary">Let's Connect →</a>
         <a href="#projects" class="btn-secondary">View Projects ↓</a>
       </div>
-      <div class="hero-avail reveal reveal-d4">
-        <span class="dot"></span> Available for new opportunities
-      </div>
       <div class="hero-stats reveal reveal-d4">
         <div>
-          <div class="hero-stat-val" data-count="4">0</div>
-          <div class="hero-stat-label">Years Experience</div>
-        </div>
-        <div>
-          <div class="hero-stat-val" data-count="5">0</div>
-          <div class="hero-stat-label">Certifications</div>
+          <div class="hero-stat-val" data-count="500" data-suffix="+">0</div>
+          <div class="hero-stat-label">Users Served</div>
         </div>
         <div>
           <div class="hero-stat-val" data-count="40" data-suffix="%">0</div>
           <div class="hero-stat-label">Effort Saved</div>
         </div>
         <div>
-          <div class="hero-stat-val" data-count="0">0</div>
-          <div class="hero-stat-label">Rollbacks</div>
+          <div class="hero-stat-val" data-count="15" data-suffix="+">0</div>
+          <div class="hero-stat-label">Processes Automated</div>
+        </div>
+        <div>
+          <div class="hero-stat-val" data-count="5" data-suffix="+">0</div>
+          <div class="hero-stat-label">Third-Party Systems</div>
         </div>
       </div>
     </div>
     <div class="hero-right reveal reveal-d2">
-      <div class="profile-card">
-        <div class="profile-avatar">
-        <img src="profile.jpeg" alt="Aditya Singh">
-      </div>
-        <div class="profile-name">Aditya Singh</div>
-        <div class="profile-role">Application Development Analyst · Accenture</div>
-        <div class="profile-info-row"><span class="profile-info-key">Experience</span><span class="profile-info-val highlight">4+ Years</span></div>
-        <div class="profile-info-row"><span class="profile-info-key">Location</span><span class="profile-info-val">Gurugram, India 🇮🇳</span></div>
-        <div class="profile-info-row"><span class="profile-info-key">Focus</span><span class="profile-info-val">Apex · LWC · OmniStudio</span></div>
-        <div class="profile-info-row"><span class="profile-info-key">Trailhead</span><span class="profile-info-val"><a href="https://www.salesforce.com/trailblazer/asingh41111" target="_blank">asingh41111 ↗</a></span></div>
-        <div class="profile-status"><span class="dot"></span> Currently @ Accenture · Full Time</div>
+      <div class="record-panel">
+        <div class="record-header">
+          <div class="record-header-icon"><img src="profile.jpeg" alt="Aditya Singh"></div>
+          <div>
+            <div class="record-header-title">Aditya Singh</div>
+            <div class="record-header-sub">Contact · Salesforce Developer</div>
+          </div>
+        </div>
+        <div class="record-highlights">
+          <div class="record-highlight"><div class="record-highlight-val">4+</div><div class="record-highlight-lbl">Years</div></div>
+          <div class="record-highlight"><div class="record-highlight-val">5×</div><div class="record-highlight-lbl">Certified</div></div>
+          <div class="record-highlight"><div class="record-highlight-val">0</div><div class="record-highlight-lbl">Rollbacks</div></div>
+        </div>
+        <div class="record-fields">
+          <div class="record-field"><div class="record-field-lbl">Title</div><div class="record-field-val">Application Development Analyst</div></div>
+          <div class="record-field"><div class="record-field-lbl">Account</div><div class="record-field-val">Accenture · Gurugram, India 🇮🇳</div></div>
+          <div class="record-field"><div class="record-field-lbl">Focus Areas</div><div class="record-field-val">Apex · LWC · OmniStudio · Agentforce</div></div>
+          <div class="record-field"><div class="record-field-lbl">Trailhead Profile</div><div class="record-field-val"><a href="https://www.salesforce.com/trailblazer/asingh41111" target="_blank">asingh41111 ↗</a></div></div>
+        </div>
+        <div class="record-status"><span class="dot"></span> Currently serving notice period</div>
       </div>
     </div>
   </div>
@@ -700,7 +772,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
     </div>
     <div class="contact-grid">
       <div class="contact-links reveal">
-        <a href="Aditya_Singh_Resume.pdf" target="_blank" class="contact-link">
+        <a href="Aditya_Singh_Resume_22_Aug.pdf" target="_blank" class="contact-link">
           <div class="contact-link-icon">📄</div>
           <div><div class="contact-link-label">Resume</div><div class="contact-link-val">Download PDF ↗</div></div>
         </a>
@@ -749,7 +821,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-logo">ADITYA<span>.</span></div>
-  <p class="footer-text">© 2025 Aditya Singh. Built with passion for Salesforce.</p>
+  <p class="footer-text">© 2026 Aditya Singh. Built with passion for Salesforce.</p>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/aditya-singh-760742216" target="_blank">LinkedIn</a>
     <a href="https://www.salesforce.com/trailblazer/asingh41111" target="_blank">Trailhead</a>
@@ -799,41 +871,10 @@ const revealOnScroll=()=>{
 window.addEventListener('scroll',revealOnScroll);
 window.addEventListener('load',revealOnScroll);
 
-// ===== TYPING EFFECT =====
-const typedStrings=[
-  'Apex · LWC · OmniStudio · Flows · CI/CD',
-  'Salesforce Administrator & Developer',
-  '5× Certified Salesforce Professional',
-  'Accenture Pinnacle Award Winner'
-];
-let stringIndex=0,charIndex=0,isDeleting=false;
-const typedEl=document.getElementById('typed-text');
-function typeEffect(){
-  const current=typedStrings[stringIndex];
-  if(isDeleting){
-    typedEl.textContent=current.substring(0,charIndex-1);
-    charIndex--;
-  }else{
-    typedEl.textContent=current.substring(0,charIndex+1);
-    charIndex++;
-  }
-  let speed=isDeleting?30:60;
-  if(!isDeleting&&charIndex===current.length){
-    speed=2000;
-    isDeleting=true;
-  }else if(isDeleting&&charIndex===0){
-    isDeleting=false;
-    stringIndex=(stringIndex+1)%typedStrings.length;
-    speed=500;
-  }
-  setTimeout(typeEffect,speed);
-}
+// ===== REDUCED MOTION: STOP MARQUEE =====
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(prefersReducedMotion){
-  typedEl.textContent=typedStrings[0];
   document.getElementById('marqueeTrack').style.animation='none';
-}else{
-  setTimeout(typeEffect,1000);
 }
 
 // ===== COUNTER ANIMATION =====
