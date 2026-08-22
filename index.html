@@ -204,7 +204,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 
 /* ===== CERTIFICATIONS ===== */
 .certs-section{background:var(--card2)}
-.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem}
 .cert-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;transition:all .4s;position:relative;overflow:hidden}
 .cert-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .cert-card:hover::after{transform:scaleX(1)}
@@ -350,7 +350,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
           <div class="hero-stat-label">Years Experience</div>
         </div>
         <div>
-          <div class="hero-stat-val" data-count="4">0</div>
+          <div class="hero-stat-val" data-count="5">0</div>
           <div class="hero-stat-label">Certifications</div>
         </div>
         <div>
@@ -482,7 +482,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
         <div class="impact-lbl">Years Experience</div>
       </div>
       <div class="impact-item">
-        <div class="impact-val">4×</div>
+        <div class="impact-val">5×</div>
         <div class="impact-lbl">Certified</div>
       </div>
       <div class="impact-item">
@@ -658,6 +658,11 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
         <div class="cert-name">Platform Developer I</div>
         <div class="cert-issuer">Salesforce</div>
       </div>
+      <div class="cert-card reveal reveal-d4">
+        <div class="cert-icon">⚙️</div>
+        <div class="cert-name">OmniStudio Developer</div>
+        <div class="cert-issuer">Salesforce</div>
+      </div>
     </div>
   </div>
 </section>
@@ -775,7 +780,7 @@ window.addEventListener('load',revealOnScroll);
 const typedStrings=[
   'Apex · LWC · OmniStudio · Flows · CI/CD',
   'Salesforce Administrator & Developer',
-  '4× Certified Salesforce Professional',
+  '5× Certified Salesforce Professional',
   'Accenture Pinnacle Award Winner'
 ];
 let stringIndex=0,charIndex=0,isDeleting=false;
