@@ -6,7 +6,7 @@
 <title>Aditya Singh — Salesforce Developer Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -14,10 +14,17 @@
   --bg:#0a0a0a;--card:#111111;--card2:#151515;--border:rgba(255,255,255,.06);
   --orange:#F63C0C;--orange2:#ff6b3d;--green:#10b981;
   --white:#ffffff;--gray1:#e5e5e5;--gray2:#a3a3a3;--gray3:#737373;--gray4:#404040;
+  --cyan:#5eead4;
   --font:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
   --max:1200px;--radius:12px;
 }
 html{scroll-behavior:smooth;scroll-padding-top:80px}
+:focus-visible{outline:2px solid var(--orange2);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto}
+}
 body{font-family:var(--font);background:var(--bg);color:var(--gray2);line-height:1.7;overflow-x:hidden;font-size:15px}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -41,7 +48,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .nav-logo{font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-.02em}
 .nav-logo span{color:var(--orange)}
 .nav-links{display:flex;list-style:none;gap:2rem}
-.nav-links a{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);transition:color .3s;font-weight:500}
+.nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:0;text-transform:none;color:var(--gray3);transition:color .3s;font-weight:500}
 .nav-links a:hover,.nav-links a.active{color:var(--white)}
 .nav-cta{font-size:.75rem;font-weight:600;padding:8px 20px;border-radius:8px;background:var(--orange);color:var(--white);letter-spacing:.04em;transition:all .3s;border:none;cursor:pointer}
 .nav-cta:hover{background:var(--orange2);box-shadow:0 4px 20px rgba(246,60,12,.3)}
@@ -54,7 +61,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);padding:2rem;border-bottom:1px solid var(--border)}
 .mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:.8rem 0;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3);transition:color .3s}
+.mobile-menu a{display:block;padding:.8rem 0;font-family:var(--mono);font-size:.85rem;letter-spacing:0;text-transform:none;color:var(--gray3);transition:color .3s}
 .mobile-menu a:hover{color:var(--white)}
 
 /* ===== HERO ===== */
@@ -63,18 +70,27 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .hero-bg-glow.g1{top:-15%;right:-10%;background:var(--orange)}
 .hero-bg-glow.g2{bottom:-20%;left:-10%;background:#ff6b3d}
 .hero-content{max-width:var(--max);margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;padding:100px 0 60px;z-index:2;position:relative}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.07);padding:6px 16px;border-radius:20px;margin-bottom:2rem;letter-spacing:.08em;color:var(--green);text-transform:uppercase;font-weight:500}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.07);padding:6px 16px;border-radius:20px;margin-bottom:2rem;letter-spacing:0;color:var(--green);text-transform:none;font-weight:500}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{font-size:4.2rem;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin-bottom:1.5rem}
 .hero h1 .line2{display:block;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-typed{font-size:.9rem;color:var(--gray3);margin-bottom:1.5rem;min-height:1.5em}
-.hero-typed .cursor{display:inline-block;width:2px;height:1em;background:var(--orange);margin-left:2px;animation:blink 1s infinite}
+.hero-terminal{background:#0d0d0d;border:1px solid var(--border);border-radius:10px;margin-bottom:1.8rem;overflow:hidden;max-width:480px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6)}
+.hero-terminal-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:#161616;border-bottom:1px solid var(--border)}
+.hero-terminal-dot{width:9px;height:9px;border-radius:50%}
+.hero-terminal-dot:nth-child(1){background:#ff5f56}
+.hero-terminal-dot:nth-child(2){background:#ffbd2e}
+.hero-terminal-dot:nth-child(3){background:#27c93f}
+.hero-terminal-title{font-family:var(--mono);font-size:.65rem;color:var(--gray3);margin-left:8px;letter-spacing:.02em}
+.hero-terminal-body{padding:14px 16px;font-family:var(--mono)}
+.hero-typed{font-size:.82rem;color:var(--gray1);min-height:1.4em}
+.hero-typed .prompt{color:var(--green);margin-right:8px}
+.hero-typed .cursor{display:inline-block;width:7px;height:1em;background:var(--orange2);margin-left:2px;vertical-align:middle;animation:blink 1s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .hero-desc{font-size:1rem;max-width:520px;line-height:1.9;margin-bottom:2rem;color:var(--gray2)}
 .hero-desc strong{color:var(--white);font-weight:600}
 .hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.2rem}
-.hero-pill{font-size:.65rem;padding:5px 14px;border-radius:20px;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);letter-spacing:.06em;font-weight:500;text-transform:uppercase}
+.hero-pill{font-family:var(--mono);font-size:.68rem;padding:5px 14px;border-radius:20px;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);letter-spacing:0;font-weight:500;text-transform:none}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1rem}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:.87rem;font-weight:700;border-radius:8px;background:var(--orange);color:var(--white);transition:all .3s;border:none;cursor:pointer;letter-spacing:.02em}
 .btn-primary:hover{background:var(--orange2);box-shadow:0 4px 24px rgba(246,60,12,.35);transform:translateY(-2px)}
@@ -125,7 +141,8 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
 
 /* ===== SECTION HEADERS ===== */
-.section-eyebrow{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:.8rem}
+.section-eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;text-transform:none;color:var(--orange2);font-weight:500;margin-bottom:.8rem;display:inline-flex;align-items:center;gap:2px}
+.section-eyebrow::before{content:'$';color:var(--gray4);margin-right:2px}
 .section-title{font-size:2.8rem;font-weight:900;color:var(--white);letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.1}
 .section-title span{background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-subtitle{font-size:1rem;color:var(--gray3);max-width:500px;line-height:1.7}
@@ -175,14 +192,14 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .skill-bar-bg{width:100%;height:4px;background:var(--gray4);border-radius:4px;overflow:hidden;margin-bottom:1.2rem}
 .skill-bar-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--orange2));border-radius:4px;width:0;transition:width 1.5s ease}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{font-size:.62rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:.04em;font-weight:500}
+.skill-tag{font-family:var(--mono);font-size:.62rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
 
 /* ===== EXPERIENCE ===== */
 .exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .exp-header{display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:1rem}
 .exp-company{font-size:1.4rem;font-weight:800;color:var(--white)}
 .exp-role{font-size:.85rem;color:var(--gray3);margin-top:.2rem}
-.exp-date{font-size:.75rem;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);padding:6px 14px;border-radius:20px;font-weight:500;letter-spacing:.04em}
+.exp-date{font-family:var(--mono);font-size:.72rem;background:rgba(246,60,12,.08);border:1px solid rgba(246,60,12,.15);color:var(--orange2);padding:6px 14px;border-radius:20px;font-weight:500;letter-spacing:0}
 .exp-body{padding:2rem 2.5rem}
 .exp-list{list-style:none}
 .exp-list li{padding:.7rem 0;padding-left:1.5rem;position:relative;font-size:.9rem;line-height:1.8;border-bottom:1px solid var(--border)}
@@ -200,7 +217,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .project-name{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
 .project-desc{font-size:.82rem;color:var(--gray3);line-height:1.7;margin-bottom:1.2rem}
 .project-tags{display:flex;flex-wrap:wrap;gap:6px}
-.project-tag{font-size:.6rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:.04em;font-weight:500}
+.project-tag{font-family:var(--mono);font-size:.6rem;padding:3px 10px;border-radius:16px;background:rgba(246,60,12,.06);border:1px solid rgba(246,60,12,.1);color:var(--orange2);letter-spacing:0;font-weight:500}
 
 /* ===== CERTIFICATIONS ===== */
 .certs-section{background:var(--card2)}
@@ -211,7 +228,7 @@ nav.scrolled{height:60px;background:rgba(10,10,10,.95)}
 .cert-card:hover{border-color:rgba(246,60,12,.2);transform:translateY(-4px)}
 .cert-icon{font-size:2.5rem;margin-bottom:1rem}
 .cert-name{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
-.cert-issuer{font-size:.7rem;color:var(--gray3);letter-spacing:.06em;text-transform:uppercase}
+.cert-issuer{font-family:var(--mono);font-size:.68rem;color:var(--gray3);letter-spacing:0;text-transform:none}
 
 /* ===== CONTACT ===== */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
@@ -278,13 +295,13 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <nav id="navbar">
   <a href="#hero" class="nav-logo">ADITYA<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#hero" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#hero" class="active">home</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#certifications">certs</a></li>
+    <li><a href="#contact">contact</a></li>
   </ul>
   <div class="nav-cta-wrap">
     <a href="#contact" class="nav-cta">Contact Me</a>
@@ -320,8 +337,14 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
         <span class="line2">Solutions That</span>
         <span class="line1">Drive Real Results</span>
       </h1>
-      <div class="hero-typed reveal reveal-d2">
-        <span id="typed-text"></span><span class="cursor"></span>
+      <div class="hero-terminal reveal reveal-d2">
+        <div class="hero-terminal-bar">
+          <span class="hero-terminal-dot"></span><span class="hero-terminal-dot"></span><span class="hero-terminal-dot"></span>
+          <span class="hero-terminal-title">aditya@salesforce — zsh</span>
+        </div>
+        <div class="hero-terminal-body">
+          <div class="hero-typed"><span class="prompt">➜</span><span id="typed-text"></span><span class="cursor"></span></div>
+        </div>
       </div>
       <p class="hero-desc reveal reveal-d2">
         I'm <strong>Aditya Singh</strong>, an <strong>Application Development Analyst</strong> at
@@ -414,7 +437,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section id="about">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">01 · About</p>
+      <p class="section-eyebrow">whoami</p>
       <h2 class="section-title">Who I <span>Am</span></h2>
       <p class="section-subtitle">Passionate Salesforce professional at the intersection of enterprise business and cutting-edge technology.</p>
     </div>
@@ -471,7 +494,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section class="skills-section" id="skills">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">02 · Skills</p>
+      <p class="section-eyebrow">cat skills.json</p>
       <h2 class="section-title">Tech <span>Stack</span></h2>
       <p class="section-subtitle">Full-spectrum Salesforce toolkit built through real enterprise delivery at scale.</p>
     </div>
@@ -546,7 +569,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section id="experience">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">03 · Experience</p>
+      <p class="section-eyebrow">git log --author=aditya</p>
       <h2 class="section-title">Work <span>History</span></h2>
       <p class="section-subtitle">Enterprise-grade Salesforce delivery for global clients.</p>
     </div>
@@ -580,7 +603,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section class="skills-section" id="projects">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">04 · Projects</p>
+      <p class="section-eyebrow">ls ./projects --sort=impact</p>
       <h2 class="section-title">Featured <span>Work</span></h2>
       <p class="section-subtitle">Key projects delivered with measurable business impact.</p>
     </div>
@@ -633,7 +656,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section class="certs-section" id="certifications">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">05 · Certifications</p>
+      <p class="section-eyebrow">trailhead --verify</p>
       <h2 class="section-title">Salesforce <span>Certified</span></h2>
       <p class="section-subtitle">Validated expertise across the Salesforce ecosystem.</p>
     </div>
@@ -671,7 +694,7 @@ footer{padding:3rem;border-top:1px solid var(--border);text-align:center}
 <section id="contact">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-eyebrow">06 · Contact</p>
+      <p class="section-eyebrow">./connect.sh</p>
       <h2 class="section-title">Let's <span>Connect</span></h2>
       <p class="section-subtitle">Got a project, opportunity, or just want to say hello? I'd love to hear from you.</p>
     </div>
@@ -805,7 +828,13 @@ function typeEffect(){
   }
   setTimeout(typeEffect,speed);
 }
-setTimeout(typeEffect,1000);
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(prefersReducedMotion){
+  typedEl.textContent=typedStrings[0];
+  document.getElementById('marqueeTrack').style.animation='none';
+}else{
+  setTimeout(typeEffect,1000);
+}
 
 // ===== COUNTER ANIMATION =====
 let counterDone=false;
