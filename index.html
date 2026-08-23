@@ -261,6 +261,21 @@ h1,h2,h3{font-family:var(--font-head);color:var(--text);letter-spacing:-.02em}
 .section-header{margin-bottom:3.5rem}
 
 /* ============================================================
+   SECTION VISUALS (real photos — upload files, graceful fallback)
+   ============================================================ */
+.section-visual{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius);overflow:hidden;margin-bottom:3.5rem;position:relative;height:260px}
+.section-visual-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55) contrast(1.08) saturate(.9)}
+.section-visual-overlay{position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(7,11,18,.05) 0%,rgba(7,11,18,.85) 100%),
+    linear-gradient(90deg,rgba(11,92,171,.14) 0%,transparent 55%)}
+.section-visual-caption{position:absolute;left:1.75rem;bottom:1.25rem;z-index:2;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);opacity:.85}
+.visual-about .section-visual-img{background-image:url('about-bg.jpg')}
+.visual-expertise .section-visual-img{background-image:url('expertise-bg.jpg')}
+.visual-experience .section-visual-img{background-image:url('experience-bg.jpg')}
+.visual-projects .section-visual-img{background-image:url('projects-bg.jpg')}
+.visual-certs .section-visual-img{background-image:url('certs-bg.jpg')}
+
+/* ============================================================
    ABOUT
    ============================================================ */
 .about-grid{display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:start}
@@ -409,6 +424,7 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
   .timeline-node{flex:1 1 100%}
   .hero-metrics{gap:1.75rem}
   .tech-strip-wrap{padding:1.25rem 0}
+  .section-visual{margin-bottom:2.5rem;height:170px}
   .build-flow{flex-direction:column;align-items:stretch;gap:2rem}
   .build-node{flex-direction:row;text-align:left;align-items:center;gap:1rem;padding:0}
   .build-node-icon{margin-bottom:0;flex-shrink:0}
@@ -577,6 +593,11 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
       <h2 class="section-title">Who I <span class="accent">Am</span></h2>
       <p class="section-subtitle">A Salesforce professional focused on scalable architecture, clean automation, and enterprise-grade delivery.</p>
     </div>
+    <div class="section-visual visual-about reveal">
+      <div class="section-visual-img"></div>
+      <div class="section-visual-overlay"></div>
+      <span class="section-visual-caption">Enterprise Salesforce Delivery</span>
+    </div>
     <div class="about-grid">
       <div class="about-text reveal">
         <p>I'm <strong>Aditya Singh</strong>, a Salesforce developer based in Gurugram, India, working at <strong>Accenture</strong> — one of the world's leading consulting firms — delivering enterprise-scale CRM implementations for global clients.</p>
@@ -635,6 +656,11 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
       <p class="eyebrow">Expertise</p>
       <h2 class="section-title">Core <span class="accent">Skills</span></h2>
       <p class="section-subtitle">A full-spectrum Salesforce toolkit, built through real enterprise delivery.</p>
+    </div>
+    <div class="section-visual visual-expertise reveal">
+      <div class="section-visual-img"></div>
+      <div class="section-visual-overlay"></div>
+      <span class="section-visual-caption">Apex · LWC · OmniStudio · Automation</span>
     </div>
     <div class="expertise-grid">
       <div class="expertise-card reveal">
@@ -752,6 +778,11 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
       <h2 class="section-title">Work <span class="accent">History</span></h2>
       <p class="section-subtitle">Enterprise-grade Salesforce delivery for global clients.</p>
     </div>
+    <div class="section-visual visual-experience reveal">
+      <div class="section-visual-img"></div>
+      <div class="section-visual-overlay"></div>
+      <span class="section-visual-caption">Accenture · Enterprise Delivery</span>
+    </div>
     <div class="exp-card reveal">
       <div class="exp-header">
         <div>
@@ -798,6 +829,11 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
       <p class="eyebrow">Projects</p>
       <h2 class="section-title">Featured <span class="accent">Work</span></h2>
       <p class="section-subtitle">Key projects delivered as part of enterprise Salesforce engagements.</p>
+    </div>
+    <div class="section-visual visual-projects reveal">
+      <div class="section-visual-img"></div>
+      <div class="section-visual-overlay"></div>
+      <span class="section-visual-caption">Case Studies · Real Engagements</span>
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
@@ -917,6 +953,11 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
       <p class="eyebrow">Certifications</p>
       <h2 class="section-title">Salesforce <span class="accent">Certified</span></h2>
       <p class="section-subtitle">Validated expertise across the Salesforce ecosystem.</p>
+    </div>
+    <div class="section-visual visual-certs reveal">
+      <div class="section-visual-img"></div>
+      <div class="section-visual-overlay"></div>
+      <span class="section-visual-caption">Salesforce Certified</span>
     </div>
     <div class="certs-grid">
       <div class="cert-card featured reveal">
