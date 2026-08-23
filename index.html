@@ -261,19 +261,25 @@ h1,h2,h3{font-family:var(--font-head);color:var(--text);letter-spacing:-.02em}
 .section-header{margin-bottom:3.5rem}
 
 /* ============================================================
-   SECTION VISUALS (real photos — upload files, graceful fallback)
+   SECTION VISUALS (full-bleed section backgrounds — real photos,
+   graceful fallback to the section's own color if an image is
+   missing, since the overlay gradient still renders on its own)
    ============================================================ */
-.section-visual{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius);overflow:hidden;margin-bottom:3.5rem;position:relative;height:260px}
-.section-visual-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55) contrast(1.08) saturate(.9)}
-.section-visual-overlay{position:absolute;inset:0;background:
-    linear-gradient(180deg,rgba(7,11,18,.05) 0%,rgba(7,11,18,.85) 100%),
-    linear-gradient(90deg,rgba(11,92,171,.14) 0%,transparent 55%)}
-.section-visual-caption{position:absolute;left:1.75rem;bottom:1.25rem;z-index:2;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);opacity:.85}
-.visual-about .section-visual-img{background-image:url('about-bg.jpg')}
-.visual-expertise .section-visual-img{background-image:url('expertise-bg.jpg')}
-.visual-experience .section-visual-img{background-image:url('experience-bg.jpg')}
-.visual-projects .section-visual-img{background-image:url('projects-bg.jpg')}
-.visual-certs .section-visual-img{background-image:url('certs-bg.jpg')}
+.bg-section{position:relative;overflow:hidden}
+.bg-section-img{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:brightness(.38) contrast(1.05) saturate(.85)}
+.bg-section-overlay{position:absolute;inset:0;z-index:0;background:
+    linear-gradient(180deg,rgba(7,11,18,.35) 0%,rgba(7,11,18,.82) 45%,var(--bg) 100%),
+    linear-gradient(90deg,rgba(11,92,171,.12) 0%,transparent 60%)}
+.bg-section.expertise-section .bg-section-overlay,
+.bg-section.certs-section .bg-section-overlay{background:
+    linear-gradient(180deg,rgba(13,19,28,.35) 0%,rgba(13,19,28,.85) 45%,var(--surface) 100%),
+    linear-gradient(90deg,rgba(11,92,171,.12) 0%,transparent 60%)}
+.bg-section > .container{position:relative;z-index:2}
+.bg-about .bg-section-img{background-image:url('about-bg.jpg')}
+.bg-expertise .bg-section-img{background-image:url('expertise-bg.jpg')}
+.bg-experience .bg-section-img{background-image:url('experience-bg.jpg')}
+.bg-projects .bg-section-img{background-image:url('projects-bg.jpg')}
+.bg-certs .bg-section-img{background-image:url('certs-bg.jpg')}
 
 /* ============================================================
    ABOUT
@@ -424,7 +430,6 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
   .timeline-node{flex:1 1 100%}
   .hero-metrics{gap:1.75rem}
   .tech-strip-wrap{padding:1.25rem 0}
-  .section-visual{margin-bottom:2.5rem;height:170px}
   .build-flow{flex-direction:column;align-items:stretch;gap:2rem}
   .build-node{flex-direction:row;text-align:left;align-items:center;gap:1rem;padding:0}
   .build-node-icon{margin-bottom:0;flex-shrink:0}
@@ -586,17 +591,14 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
 </div>
 
 <!-- ===================== ABOUT ===================== -->
-<section id="about">
+<section id="about" class="bg-section bg-about">
+  <div class="bg-section-img" aria-hidden="true"></div>
+  <div class="bg-section-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">About</p>
       <h2 class="section-title">Who I <span class="accent">Am</span></h2>
       <p class="section-subtitle">A Salesforce professional focused on scalable architecture, clean automation, and enterprise-grade delivery.</p>
-    </div>
-    <div class="section-visual visual-about reveal">
-      <div class="section-visual-img"></div>
-      <div class="section-visual-overlay"></div>
-      <span class="section-visual-caption">Enterprise Salesforce Delivery</span>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
@@ -650,17 +652,14 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
 </section>
 
 <!-- ===================== EXPERTISE ===================== -->
-<section class="expertise-section" id="expertise">
+<section class="expertise-section bg-section bg-expertise" id="expertise">
+  <div class="bg-section-img" aria-hidden="true"></div>
+  <div class="bg-section-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">Expertise</p>
       <h2 class="section-title">Core <span class="accent">Skills</span></h2>
       <p class="section-subtitle">A full-spectrum Salesforce toolkit, built through real enterprise delivery.</p>
-    </div>
-    <div class="section-visual visual-expertise reveal">
-      <div class="section-visual-img"></div>
-      <div class="section-visual-overlay"></div>
-      <span class="section-visual-caption">Apex · LWC · OmniStudio · Automation</span>
     </div>
     <div class="expertise-grid">
       <div class="expertise-card reveal">
@@ -771,17 +770,14 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
 </section>
 
 <!-- ===================== EXPERIENCE ===================== -->
-<section id="experience">
+<section id="experience" class="bg-section bg-experience">
+  <div class="bg-section-img" aria-hidden="true"></div>
+  <div class="bg-section-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">Experience</p>
       <h2 class="section-title">Work <span class="accent">History</span></h2>
       <p class="section-subtitle">Enterprise-grade Salesforce delivery for global clients.</p>
-    </div>
-    <div class="section-visual visual-experience reveal">
-      <div class="section-visual-img"></div>
-      <div class="section-visual-overlay"></div>
-      <span class="section-visual-caption">Accenture · Enterprise Delivery</span>
     </div>
     <div class="exp-card reveal">
       <div class="exp-header">
@@ -823,17 +819,14 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
 </section>
 
 <!-- ===================== PROJECTS ===================== -->
-<section id="projects">
+<section id="projects" class="bg-section bg-projects">
+  <div class="bg-section-img" aria-hidden="true"></div>
+  <div class="bg-section-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">Projects</p>
       <h2 class="section-title">Featured <span class="accent">Work</span></h2>
       <p class="section-subtitle">Key projects delivered as part of enterprise Salesforce engagements.</p>
-    </div>
-    <div class="section-visual visual-projects reveal">
-      <div class="section-visual-img"></div>
-      <div class="section-visual-overlay"></div>
-      <span class="section-visual-caption">Case Studies · Real Engagements</span>
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
@@ -947,17 +940,14 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);text-align:center}
 <!-- NOTE (content-accuracy): the source index.html does not contain
      verification URLs for any certification, so no card below links
      out to an external verification page — one has not been invented. -->
-<section class="certs-section" id="certifications">
+<section class="certs-section bg-section bg-certs" id="certifications">
+  <div class="bg-section-img" aria-hidden="true"></div>
+  <div class="bg-section-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">Certifications</p>
       <h2 class="section-title">Salesforce <span class="accent">Certified</span></h2>
       <p class="section-subtitle">Validated expertise across the Salesforce ecosystem.</p>
-    </div>
-    <div class="section-visual visual-certs reveal">
-      <div class="section-visual-img"></div>
-      <div class="section-visual-overlay"></div>
-      <span class="section-visual-caption">Salesforce Certified</span>
     </div>
     <div class="certs-grid">
       <div class="cert-card featured reveal">
